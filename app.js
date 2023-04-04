@@ -89,17 +89,34 @@ class UI {
         event.target.disabled = true;
 
         //get product from products
-        let cartItem = {...Storage.getProducts(id), amount: 1 };
+        let cartItem = { ...Storage.getProducts(id), amount: 1 };
+        
         //add product to cart
         cart = [...cart, cartItem];
+
         //save cart in local storage
         Storage.saveCart(cart);
+
         //set cart values
+        this.setCartValues(cart); //updated cart values
         //display cart items
         //show the cart
       });
     })
   };
+
+  setCartValues(cart) {
+    let tempTotal = 0;
+    let itemsTotal = 0;
+    cart.map((item) => {
+      tempTotal += item.price * item.amount;
+      itemsTotal += item.amount;
+    });
+    cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
+    cartItems.innerText = itemsTotal;
+    console.log(cartTotal, cartItems);
+  }
+
 }
 
 //local storage
