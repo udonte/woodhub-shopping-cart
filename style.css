@@ -58,7 +58,7 @@ body {
   font-size: 1.5rem;
 }
 
-.card-btn{
+.cart-btn{
   position: relative; 
   cursor: pointer;
   width: fit-content;
@@ -201,6 +201,7 @@ body {
 /* -------------- End of Product  ------------- */
 
 /* ----------------cart ----------------- */
+
 
 .card-overlay{
   position: fixed;
